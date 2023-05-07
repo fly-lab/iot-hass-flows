@@ -35,6 +35,29 @@
         "sessionExpiry": ""
     },
     {
+        "id": "4cba1547e21c5698",
+        "type": "server",
+        "name": "Home Assistant",
+        "version": 5,
+        "addon": false,
+        "rejectUnauthorizedCerts": true,
+        "ha_boolean": "y|yes|true|on|home|open",
+        "connectionDelay": true,
+        "cacheJson": true,
+        "heartbeat": false,
+        "heartbeatInterval": "30",
+        "areaSelector": "friendlyName",
+        "deviceSelector": "friendlyName",
+        "entitySelector": "friendlyName",
+        "statusSeparator": ": ",
+        "statusYear": "numeric",
+        "statusMonth": "short",
+        "statusDay": "numeric",
+        "statusHourCycle": "h12",
+        "statusTimeFormat": "h:m:s",
+        "enableGlobalContextStore": false
+    },
+    {
         "id": "7c0d4429e3b444cc",
         "type": "mqtt in",
         "z": "1da0d2b6fd456906",
@@ -117,5 +140,65 @@
                 "95995947692723b9"
             ]
         ]
+    },
+    {
+        "id": "2a5e19b591cb5c19",
+        "type": "server-events",
+        "z": "1da0d2b6fd456906",
+        "name": "Console Events",
+        "server": "4cba1547e21c5698",
+        "version": 2,
+        "eventType": "",
+        "exposeToHomeAssistant": false,
+        "eventData": "",
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "waitForRunning": true,
+        "outputProperties": [
+            {
+                "property": "payload",
+                "propertyType": "msg",
+                "value": "",
+                "valueType": "eventData"
+            },
+            {
+                "property": "topic",
+                "propertyType": "msg",
+                "value": "$outputData(\"eventData\").event_type",
+                "valueType": "jsonata"
+            }
+        ],
+        "event_type": "",
+        "x": 600,
+        "y": 500,
+        "wires": [
+            [
+                "9c5123403dc8c969"
+            ]
+        ]
+    },
+    {
+        "id": "9c5123403dc8c969",
+        "type": "debug",
+        "z": "1da0d2b6fd456906",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 500,
+        "wires": []
     }
 ]
